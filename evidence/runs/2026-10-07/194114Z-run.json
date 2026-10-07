@@ -1,0 +1,394 @@
+{
+  "control": "CM-01",
+  "run_id": "37676259092",
+  "trigger": "workflow_dispatch",
+  "started_at": "2026-10-07T19:41:14.871Z",
+  "repos": [
+    {
+      "repo": "TheEraptic/grc-lab-payments-api",
+      "scope": {
+        "status": "in_scope",
+        "reason": "Classified 'production'"
+      },
+      "evaluation": {
+        "repo": "TheEraptic/grc-lab-payments-api",
+        "default_branch": "main",
+        "status": "FAIL",
+        "failures": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6"
+        ],
+        "results": {
+          "P1": {
+            "pass": false,
+            "detail": "No active rule requires a pull request"
+          },
+          "P2": {
+            "pass": false,
+            "detail": "0 approval(s) required (need >= 1)"
+          },
+          "P3": {
+            "pass": false,
+            "detail": "Stale approvals are NOT dismissed on push"
+          },
+          "P4": {
+            "pass": false,
+            "detail": "'test' check is not required"
+          },
+          "P5": {
+            "pass": false,
+            "detail": "No active ruleset protects the branch"
+          },
+          "P6": {
+            "pass": false,
+            "detail": "force-push ALLOWED, deletion ALLOWED"
+          },
+          "D1": {
+            "pass": true,
+            "detail": "All 0 commit(s) came from merged PRs"
+          },
+          "D2": {
+            "pass": true,
+            "detail": "All PRs approved by a non-author on the final commit"
+          },
+          "D3": {
+            "pass": true,
+            "detail": "'test' passed on every merged PR"
+          }
+        },
+        "period": {
+          "since": "2026-10-07T19:23:00.000Z",
+          "commits_tested": 0
+        },
+        "violations": []
+      },
+      "after_remediation": {
+        "repo": "TheEraptic/grc-lab-payments-api",
+        "default_branch": "main",
+        "status": "PASS",
+        "failures": [],
+        "results": {
+          "P1": {
+            "pass": true,
+            "detail": "Pull request required"
+          },
+          "P2": {
+            "pass": true,
+            "detail": "1 approval(s) required (need >= 1)"
+          },
+          "P3": {
+            "pass": true,
+            "detail": "Stale approvals dismissed"
+          },
+          "P4": {
+            "pass": true,
+            "detail": "Required checks: test"
+          },
+          "P5": {
+            "pass": true,
+            "detail": "No bypass actors"
+          },
+          "P6": {
+            "pass": true,
+            "detail": "force-push blocked, deletion blocked"
+          }
+        },
+        "period": null,
+        "violations": []
+      }
+    },
+    {
+      "repo": "TheEraptic/grc-lab-sandbox",
+      "scope": {
+        "status": "in_scope",
+        "unclassified": true,
+        "reason": "Unclassified: treated as production (fail-secure)"
+      },
+      "evaluation": {
+        "repo": "TheEraptic/grc-lab-sandbox",
+        "default_branch": "main",
+        "status": "FAIL",
+        "failures": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6"
+        ],
+        "results": {
+          "P1": {
+            "pass": false,
+            "detail": "No active rule requires a pull request"
+          },
+          "P2": {
+            "pass": false,
+            "detail": "0 approval(s) required (need >= 1)"
+          },
+          "P3": {
+            "pass": false,
+            "detail": "Stale approvals are NOT dismissed on push"
+          },
+          "P4": {
+            "pass": false,
+            "detail": "'test' check is not required"
+          },
+          "P5": {
+            "pass": false,
+            "detail": "No active ruleset protects the branch"
+          },
+          "P6": {
+            "pass": false,
+            "detail": "force-push ALLOWED, deletion ALLOWED"
+          },
+          "D1": {
+            "pass": true,
+            "detail": "All 0 commit(s) came from merged PRs"
+          },
+          "D2": {
+            "pass": true,
+            "detail": "All PRs approved by a non-author on the final commit"
+          },
+          "D3": {
+            "pass": true,
+            "detail": "'test' passed on every merged PR"
+          }
+        },
+        "period": {
+          "since": "2026-10-07T19:23:00.000Z",
+          "commits_tested": 0
+        },
+        "violations": []
+      },
+      "after_remediation": {
+        "repo": "TheEraptic/grc-lab-sandbox",
+        "default_branch": "main",
+        "status": "PASS",
+        "failures": [],
+        "results": {
+          "P1": {
+            "pass": true,
+            "detail": "Pull request required"
+          },
+          "P2": {
+            "pass": true,
+            "detail": "1 approval(s) required (need >= 1)"
+          },
+          "P3": {
+            "pass": true,
+            "detail": "Stale approvals dismissed"
+          },
+          "P4": {
+            "pass": true,
+            "detail": "Required checks: test"
+          },
+          "P5": {
+            "pass": true,
+            "detail": "No bypass actors"
+          },
+          "P6": {
+            "pass": true,
+            "detail": "force-push blocked, deletion blocked"
+          }
+        },
+        "period": null,
+        "violations": []
+      }
+    }
+  ],
+  "agent": {
+    "model": "claude-opus-5-5",
+    "stop_reason": "end_turn",
+    "actions": [
+      {
+        "at": "2026-10-07T19:41:30.262Z",
+        "tool": "apply_baseline_ruleset",
+        "input": {
+          "repo": "TheEraptic/grc-lab-payments-api"
+        },
+        "output": {
+          "action": "created_ruleset",
+          "ruleset_id": 24674536,
+          "url": "https://github.com/TheEraptic/grc-lab-payments-api/rules/24674536"
+        },
+        "ok": true
+      },
+      {
+        "at": "2026-10-07T19:41:30.958Z",
+        "tool": "apply_baseline_ruleset",
+        "input": {
+          "repo": "TheEraptic/grc-lab-sandbox"
+        },
+        "output": {
+          "action": "created_ruleset",
+          "ruleset_id": 24674538,
+          "url": "https://github.com/TheEraptic/grc-lab-sandbox/rules/24674538"
+        },
+        "ok": true
+      },
+      {
+        "at": "2026-10-07T19:41:31.403Z",
+        "tool": "get_repo_context",
+        "input": {
+          "repo": "TheEraptic/grc-lab-sandbox"
+        },
+        "output": {
+          "repo": "TheEraptic/grc-lab-sandbox",
+          "description": "DEMO: personal scratchpad repo for the CM-01 GRC lab",
+          "topics": [
+            "grc-monitored"
+          ],
+          "created_at": "2026-10-07T19:20:52Z",
+          "pushed_at": "2026-10-07T19:21:16Z",
+          "deployment_environments": [],
+          "workflows": [],
+          "checks_seen_on_default_branch": [],
+          "produces_required_check": false,
+          "readme_excerpt": "# grc-lab-sandbox\n\nMy personal scratchpad for trying things out. Nothing here is deployed anywhere.\n"
+        },
+        "ok": true
+      },
+      {
+        "at": "2026-10-07T19:41:32.327Z",
+        "tool": "get_repo_context",
+        "input": {
+          "repo": "TheEraptic/grc-lab-payments-api"
+        },
+        "output": {
+          "repo": "TheEraptic/grc-lab-payments-api",
+          "description": "DEMO: simulated production payments service monitored by the CM-01 GRC lab",
+          "topics": [
+            "grc-monitored"
+          ],
+          "created_at": "2026-10-07T19:20:47Z",
+          "pushed_at": "2026-10-07T19:21:13Z",
+          "deployment_environments": [],
+          "workflows": [
+            ".github/workflows/ci.yml"
+          ],
+          "checks_seen_on_default_branch": [
+            "test"
+          ],
+          "produces_required_check": true,
+          "readme_excerpt": "# grc-lab-payments-api\n\n**Demo repository.** Pretends to be a production payments service so the\n[CM-01 GRC lab](https://github.com/TheEraptic/GRC-Engineering) has something to protect.\n\n- Deploys to: production (simulated)\n- Owner: @TheEraptic\n- Every change to `main` must go through a pull request, an approving review and the `test` check (control CM-01).\n"
+        },
+        "ok": true
+      },
+      {
+        "at": "2026-10-07T19:41:35.683Z",
+        "tool": "verify_repo",
+        "input": {
+          "repo": "TheEraptic/grc-lab-payments-api"
+        },
+        "output": {
+          "status": "PASS",
+          "failures": [],
+          "results": {
+            "P1": {
+              "pass": true,
+              "detail": "Pull request required"
+            },
+            "P2": {
+              "pass": true,
+              "detail": "1 approval(s) required (need >= 1)"
+            },
+            "P3": {
+              "pass": true,
+              "detail": "Stale approvals dismissed"
+            },
+            "P4": {
+              "pass": true,
+              "detail": "Required checks: test"
+            },
+            "P5": {
+              "pass": true,
+              "detail": "No bypass actors"
+            },
+            "P6": {
+              "pass": true,
+              "detail": "force-push blocked, deletion blocked"
+            }
+          }
+        },
+        "ok": true
+      },
+      {
+        "at": "2026-10-07T19:41:36.200Z",
+        "tool": "verify_repo",
+        "input": {
+          "repo": "TheEraptic/grc-lab-sandbox"
+        },
+        "output": {
+          "status": "PASS",
+          "failures": [],
+          "results": {
+            "P1": {
+              "pass": true,
+              "detail": "Pull request required"
+            },
+            "P2": {
+              "pass": true,
+              "detail": "1 approval(s) required (need >= 1)"
+            },
+            "P3": {
+              "pass": true,
+              "detail": "Stale approvals dismissed"
+            },
+            "P4": {
+              "pass": true,
+              "detail": "Required checks: test"
+            },
+            "P5": {
+              "pass": true,
+              "detail": "No bypass actors"
+            },
+            "P6": {
+              "pass": true,
+              "detail": "force-push blocked, deletion blocked"
+            }
+          }
+        },
+        "ok": true
+      },
+      {
+        "at": "2026-10-07T19:41:45.928Z",
+        "tool": "notify_owner",
+        "input": {
+          "repo": "TheEraptic/grc-lab-payments-api",
+          "severity": "info",
+          "title": "CM-01: main branch protection restored on payments-api",
+          "body": "**What was wrong:** `main` had no protection at all. PRs, approvals and the `test` check were not required, and force-push and deletion were allowed (P1–P6 failed).\n\n**What I did:** I applied the \"CM-01 baseline\" ruleset ([ruleset 24674536](https://github.com/TheEraptic/grc-lab-payments-api/rules/24674536)).\n\n**verify_repo: PASS**\n- P1 pass: PR required\n- P2 pass: 1 approval required\n- P3 pass: stale approvals dismissed\n- P4 pass: `test` check required. CI produces it, so PRs won't be blocked.\n- P5 pass: no bypass actors\n- P6 pass: force-push and deletion blocked\n\n**History:** No commits reached `main` in this period without a PR, review or passing test, so I opened no retro-review issues.\n\nThis repo is classified production. No reply is needed unless you disagree."
+        },
+        "output": {
+          "action": "opened_alert",
+          "url": "https://github.com/TheEraptic/GRC-Engineering/issues/2",
+          "issue": 2
+        },
+        "ok": true
+      },
+      {
+        "at": "2026-10-07T19:41:46.863Z",
+        "tool": "notify_owner",
+        "input": {
+          "repo": "TheEraptic/grc-lab-sandbox",
+          "severity": "action_required",
+          "title": "CM-01: sandbox unclassified, protected as prod; PRs now blocked",
+          "body": "**What was wrong:** `main` had no protection, and this repo has no classification, so it's treated as production by default. PRs, approvals and the `test` check were not required, and force-push and deletion were allowed (P1–P6 failed).\n\n**What I did:** I applied the \"CM-01 baseline\" ruleset ([ruleset 24674538](https://github.com/TheEraptic/grc-lab-sandbox/rules/24674538)).\n\n**verify_repo: PASS.** P1–P6 all pass: PR required, 1 approval, stale approvals dismissed, `test` required, no bypass actors, force-push and deletion blocked.\n\n⚠️ **Every PR is now blocked.** This repo has no workflows and has never reported a `test` check, so the required check can never pass. That stays true until you add a test workflow or reclassify the repo.\n\n**History:** No commits reached `main` in this period without a PR, review or passing test, so I opened no retro-review issues.\n\n**My assessment: probably not production.** You decide.\n- README says: \"My personal scratchpad for trying things out. Nothing here is deployed anywhere.\"\n- Description: \"DEMO: personal scratchpad repo\"\n- No deployment environments\n- No workflows and no checks on `main`\n\n**Reply with one of:**\n- `non-prod <reason>`: reclassify it and remove the baseline ruleset\n- `confirm-prod`: keep the protections and record the classification\n- `accept-risk <days> <reason>`: grant a time-boxed exception"
+        },
+        "output": {
+          "action": "opened_alert",
+          "url": "https://github.com/TheEraptic/GRC-Engineering/issues/3",
+          "issue": 3
+        },
+        "ok": true
+      }
+    ],
+    "summary": "I fixed branch protection on both repos and the recheck confirms it, but the sandbox owner now needs to classify that repo because every PR there is blocked. Both `TheEraptic/grc-lab-payments-api` and `TheEraptic/grc-lab-sandbox` had no protection on `main`, so all preventive checks (P1–P6) failed. I applied the \"CM-01 baseline\" ruleset to each: ruleset 24674536 on payments-api and 24674538 on sandbox. Rerunning the checks gave PASS on all six for both repos. Neither repo had detective violations: no commits reached `main` in the period, so I opened no retro-review issues. The owner of payments-api, which is classified production and already produces the `test` check, got an info notice with no reply needed (GRC-Engineering#2). The sandbox owner got an action-required notice (GRC-Engineering#3). It warns that the repo has no workflows that produce the `test` check, so every PR is blocked. It also says the repo looks non-production (README calls it a personal scratchpad that is \"not deployed anywhere\", and it has no deployment environments). The notice asks the owner to reply with `non-prod`, `confirm-prod` or `accept-risk`."
+  },
+  "finished_at": "2026-10-07T19:41:53.476Z",
+  "evidence_file": "evidence/runs/2026-10-07/194114Z-run.json"
+}
