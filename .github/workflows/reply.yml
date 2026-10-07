@@ -1,0 +1,44 @@
+name: CM-01 owner reply
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: grc-state
+  cancel-in-progress: false
+
+jobs:
+  reply:
+    # Only comments on agent alert issues. The owner check is repeated in code (defense in depth).
+    if: >-
+      !github.event.issue.pull_request &&
+      contains(github.event.issue.labels.*.name, 'cm-01-alert') &&
+      github.event.comment.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Record the owner's decision
+        run: npm run reply
+        env:
+          GH_ADMIN_TOKEN: ${{ secrets.GRC_ADMIN_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      - name: Commit decision
+        run: |
+          git config user.name "grc-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidence inventory exceptions
+          git diff --cached --quiet || {
+            git commit -m "decision: owner reply on #${{ github.event.issue.number }}"
+            git pull --rebase && git push
+          }

@@ -1,0 +1,4 @@
+# Exception register: time-boxed, owner-approved risk acceptances.
+# While an exception is active, the monitor records the repo as "excepted" instead of failing it.
+# When it expires the repo is back in scope automatically. Written only by the reply handler.
+exceptions: []

@@ -1,0 +1,17 @@
+{
+  "name": "grc-engineering-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Control CM-01 (SOC 2 CC8.1) as code: detect, remediate, notify, document.",
+  "scripts": {
+    "check": "node src/run.mjs --no-agent",
+    "monitor": "node src/run.mjs",
+    "reply": "node src/reply.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.132.0",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.5"
+  }
+}

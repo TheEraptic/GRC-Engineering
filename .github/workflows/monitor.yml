@@ -1,0 +1,41 @@
+name: CM-01 monitor
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours: continuous control monitoring
+  workflow_dispatch:          # "Run workflow" button for demos
+
+permissions:
+  contents: write   # commit evidence to this repo
+  issues: write     # alert issues in this repo (as github-actions[bot], so you get notified)
+
+concurrency:
+  group: grc-state  # monitor and reply both write state files; never run them at the same time
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Detect, remediate, document
+        run: npm run monitor
+        env:
+          GH_ADMIN_TOKEN: ${{ secrets.GRC_ADMIN_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GRC_TRIGGER: ${{ github.event_name }}
+      - name: Commit evidence
+        run: |
+          git config user.name "grc-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidence CONTROL-STATUS.md
+          git diff --cached --quiet || {
+            git commit -m "evidence: CM-01 monitor run ${{ github.run_id }}"
+            git pull --rebase && git push
+          }

@@ -1,0 +1,140 @@
+{
+  "control": "CM-01",
+  "run_id": "local-1791401116981",
+  "trigger": "manual",
+  "started_at": "2026-10-07T19:25:16.981Z",
+  "repos": [
+    {
+      "repo": "TheEraptic/grc-lab-payments-api",
+      "scope": {
+        "status": "in_scope",
+        "reason": "Classified 'production'"
+      },
+      "evaluation": {
+        "repo": "TheEraptic/grc-lab-payments-api",
+        "default_branch": "main",
+        "status": "FAIL",
+        "failures": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6"
+        ],
+        "results": {
+          "P1": {
+            "pass": false,
+            "detail": "No active rule requires a pull request"
+          },
+          "P2": {
+            "pass": false,
+            "detail": "0 approval(s) required (need >= 1)"
+          },
+          "P3": {
+            "pass": false,
+            "detail": "Stale approvals are NOT dismissed on push"
+          },
+          "P4": {
+            "pass": false,
+            "detail": "'test' check is not required"
+          },
+          "P5": {
+            "pass": false,
+            "detail": "No active ruleset protects the branch"
+          },
+          "P6": {
+            "pass": false,
+            "detail": "force-push ALLOWED, deletion ALLOWED"
+          },
+          "D1": {
+            "pass": true,
+            "detail": "All 0 commit(s) came from merged PRs"
+          },
+          "D2": {
+            "pass": true,
+            "detail": "All PRs approved by a non-author on the final commit"
+          },
+          "D3": {
+            "pass": true,
+            "detail": "'test' passed on every merged PR"
+          }
+        },
+        "period": {
+          "since": "2026-10-07T19:23:00.000Z",
+          "commits_tested": 0
+        },
+        "violations": []
+      }
+    },
+    {
+      "repo": "TheEraptic/grc-lab-sandbox",
+      "scope": {
+        "status": "in_scope",
+        "unclassified": true,
+        "reason": "Unclassified: treated as production (fail-secure)"
+      },
+      "evaluation": {
+        "repo": "TheEraptic/grc-lab-sandbox",
+        "default_branch": "main",
+        "status": "FAIL",
+        "failures": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6"
+        ],
+        "results": {
+          "P1": {
+            "pass": false,
+            "detail": "No active rule requires a pull request"
+          },
+          "P2": {
+            "pass": false,
+            "detail": "0 approval(s) required (need >= 1)"
+          },
+          "P3": {
+            "pass": false,
+            "detail": "Stale approvals are NOT dismissed on push"
+          },
+          "P4": {
+            "pass": false,
+            "detail": "'test' check is not required"
+          },
+          "P5": {
+            "pass": false,
+            "detail": "No active ruleset protects the branch"
+          },
+          "P6": {
+            "pass": false,
+            "detail": "force-push ALLOWED, deletion ALLOWED"
+          },
+          "D1": {
+            "pass": true,
+            "detail": "All 0 commit(s) came from merged PRs"
+          },
+          "D2": {
+            "pass": true,
+            "detail": "All PRs approved by a non-author on the final commit"
+          },
+          "D3": {
+            "pass": true,
+            "detail": "'test' passed on every merged PR"
+          }
+        },
+        "period": {
+          "since": "2026-10-07T19:23:00.000Z",
+          "commits_tested": 0
+        },
+        "violations": []
+      }
+    }
+  ],
+  "agent": {
+    "skipped": "--no-agent: detection only"
+  },
+  "finished_at": "2026-10-07T19:25:19.777Z",
+  "evidence_file": "evidence/runs/2026-10-07/192516Z-run.json"
+}

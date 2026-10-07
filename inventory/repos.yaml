@@ -1,0 +1,10 @@
+# Scope inventory for CM-01: which repos are production?
+# Only repos with the `grc-monitored` topic are evaluated at all.
+# A monitored repo that is NOT listed here is UNCLASSIFIED and treated as production (fail-secure).
+# Classification changes are human decisions: the reply handler writes them, the agent never does.
+repos:
+  TheEraptic/grc-lab-payments-api:
+    environment: production
+    classified_by: TheEraptic
+    classified_at: 2026-10-07T19:23:00Z
+    justification: Simulated production payments service

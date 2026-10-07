@@ -1,0 +1,49 @@
+# Control CM-01 written as code.
+# Humans read `statement`. The monitor reads everything else, so this file
+# is the single source of truth for what "operating effectively" means.
+
+id: CM-01
+title: Changes to production go through a pull request, review and automated test
+framework_mapping:
+  - SOC2 CC8.1        # change management
+  - ISO27001 A.8.32   # change management
+statement: >
+  All changes to production must go through a pull request, code review,
+  and automated test before merge.
+owner: TheEraptic            # control owner; the only person whose replies the agent obeys
+effective_date: 2026-10-07T19:23:00Z   # history before this date is not tested
+
+scope:
+  discovery_topic: grc-monitored        # lab safety: only repos carrying this topic are evaluated or touched
+  in_scope_environments: [production]
+  if_unclassified: in_scope             # fail-secure: unknown repos are treated as production
+  classification_review_days: 90        # a "non-production" classification expires and must be re-confirmed
+
+parameters:
+  default_branch_only: true
+  required_check: test                  # status check name that proves automated tests ran
+  min_approvals: 1
+  detective_lookback_days: 7
+  allowed_bypass_actors: []             # e.g. a break-glass team; empty = nobody may bypass
+  max_exception_days: 90
+
+assertions:
+  preventive:                           # "is the guardrail configured right now?"
+    P1: Default branch requires a pull request before merge
+    P2: At least `min_approvals` approving review(s) required
+    P3: Stale approvals are dismissed when new commits are pushed
+    P4: The `required_check` status check must pass before merge
+    P5: No bypass actors on the protecting ruleset(s) beyond `allowed_bypass_actors`
+    P6: Force-push and branch deletion are blocked
+  detective:                            # "did every change in the period actually follow it?"
+    D1: Every commit on the default branch is associated with a merged pull request
+    D2: That pull request had an approval from someone other than its author, on its final commit
+    D3: The `required_check` passed on that pull request's final commit
+    # D4 (bypass events have a linked break-glass ticket) needs the org audit log; out of lab scope.
+
+remediation:
+  preventive: auto        # re-apply baseline-ruleset.json, re-verify, notify the owner
+  detective: assisted     # merged history can't be undone: open a retroactive-review issue, notify
+  human_only:             # the agent may never do these on its own; they need an owner reply
+    - change a repo's environment classification
+    - accept risk / grant an exception
