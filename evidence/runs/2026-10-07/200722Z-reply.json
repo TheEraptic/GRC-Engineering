@@ -1,0 +1,18 @@
+{
+  "control": "CM-01",
+  "kind": "owner_reply",
+  "started_at": "2026-10-07T20:07:22.207Z",
+  "issue": "https://github.com/TheEraptic/GRC-Engineering/issues/4",
+  "repo": "TheEraptic/grc-lab-payments-api",
+  "author": "TheEraptic",
+  "comment": "The force merges were me they were emergencies so I had to do it. It has now been reviewed by Jared our other developer and confirmed all good",
+  "actions": [],
+  "parsed": {
+    "method": "ai",
+    "intent": "unclear",
+    "justification": "The force merges were me they were emergencies so I had to do it. It has now been reviewed by Jared our other developer and confirmed all good",
+    "duration_days": null
+  },
+  "decision": "unclear",
+  "evidence_file": "evidence/runs/2026-10-07/200722Z-reply.json"
+}
