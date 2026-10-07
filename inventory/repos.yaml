@@ -8,3 +8,10 @@ repos:
     classified_by: TheEraptic
     classified_at: 2026-10-07T19:23:00Z
     justification: Simulated production payments service
+  TheEraptic/grc-lab-sandbox:
+    environment: non-production
+    classified_by: TheEraptic
+    classified_at: 2026-10-07T19:46:42.513Z
+    review_by: 2027-01-05T19:46:42.513Z
+    justification: it is a playground
+    source: https://github.com/TheEraptic/GRC-Engineering/issues/3

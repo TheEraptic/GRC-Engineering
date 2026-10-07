@@ -1,0 +1,27 @@
+{
+  "control": "CM-01",
+  "kind": "owner_reply",
+  "started_at": "2026-10-07T19:46:42.512Z",
+  "issue": "https://github.com/TheEraptic/GRC-Engineering/issues/3",
+  "repo": "TheEraptic/grc-lab-sandbox",
+  "author": "TheEraptic",
+  "comment": "non-prod it is a playground\n",
+  "actions": [
+    {
+      "action": "inventory_reclassified",
+      "environment": "non-production"
+    },
+    {
+      "action": "removed_ruleset",
+      "ruleset_id": 24674538
+    }
+  ],
+  "parsed": {
+    "method": "command",
+    "intent": "mark_non_production",
+    "justification": "it is a playground",
+    "duration_days": null
+  },
+  "decision": "mark_non_production",
+  "evidence_file": "evidence/runs/2026-10-07/194642Z-reply.json"
+}
