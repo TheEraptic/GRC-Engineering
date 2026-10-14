@@ -1,0 +1,184 @@
+{
+  "control": "CM-01",
+  "run_id": "38559535519",
+  "trigger": "schedule",
+  "started_at": "2026-10-14T11:51:34.960Z",
+  "repos": [
+    {
+      "repo": "TheEraptic/grc-lab-payments-api",
+      "scope": {
+        "status": "in_scope",
+        "reason": "Classified 'production'"
+      },
+      "evaluation": {
+        "repo": "TheEraptic/grc-lab-payments-api",
+        "default_branch": "main",
+        "status": "FAIL",
+        "failures": [
+          "D2"
+        ],
+        "results": {
+          "P1": {
+            "pass": true,
+            "detail": "Pull request required"
+          },
+          "P2": {
+            "pass": true,
+            "detail": "1 approval(s) required (need >= 1)"
+          },
+          "P3": {
+            "pass": true,
+            "detail": "Stale approvals dismissed"
+          },
+          "P4": {
+            "pass": true,
+            "detail": "Required checks: test"
+          },
+          "P5": {
+            "pass": true,
+            "detail": "No bypass actors"
+          },
+          "P6": {
+            "pass": true,
+            "detail": "force-push blocked, deletion blocked"
+          },
+          "D1": {
+            "pass": true,
+            "detail": "All 2 commit(s) came from merged PRs"
+          },
+          "D2": {
+            "pass": false,
+            "detail": "PRs merged without independent approval: 599d9a1, 46d465d"
+          },
+          "D3": {
+            "pass": true,
+            "detail": "'test' passed on every merged PR"
+          }
+        },
+        "period": {
+          "since": "2026-10-07T19:23:00.000Z",
+          "commits_tested": 2
+        },
+        "violations": [
+          {
+            "sha": "599d9a1e2e11b1a660eaddf266eb254b261b7bc4",
+            "message": "Merge pull request #2 from TheEraptic/claude/gifted-fermi-8mebhl",
+            "author": "TheEraptic",
+            "date": "2026-10-07T19:54:49Z",
+            "url": "https://github.com/TheEraptic/grc-lab-payments-api/commit/599d9a1e2e11b1a660eaddf266eb254b261b7bc4",
+            "pr": 2,
+            "failed": [
+              "D2"
+            ]
+          },
+          {
+            "sha": "46d465d9da0b23b2500017935e60d3d720f92c5e",
+            "message": "docs: add test instructions to README",
+            "author": "claude",
+            "date": "2026-10-07T19:52:06Z",
+            "url": "https://github.com/TheEraptic/grc-lab-payments-api/commit/46d465d9da0b23b2500017935e60d3d720f92c5e",
+            "pr": 2,
+            "failed": [
+              "D2"
+            ]
+          }
+        ]
+      },
+      "after_remediation": {
+        "repo": "TheEraptic/grc-lab-payments-api",
+        "default_branch": "main",
+        "status": "PASS",
+        "failures": [],
+        "results": {
+          "P1": {
+            "pass": true,
+            "detail": "Pull request required"
+          },
+          "P2": {
+            "pass": true,
+            "detail": "1 approval(s) required (need >= 1)"
+          },
+          "P3": {
+            "pass": true,
+            "detail": "Stale approvals dismissed"
+          },
+          "P4": {
+            "pass": true,
+            "detail": "Required checks: test"
+          },
+          "P5": {
+            "pass": true,
+            "detail": "No bypass actors"
+          },
+          "P6": {
+            "pass": true,
+            "detail": "force-push blocked, deletion blocked"
+          }
+        },
+        "period": null,
+        "violations": []
+      }
+    },
+    {
+      "repo": "TheEraptic/grc-lab-sandbox",
+      "scope": {
+        "status": "out_of_scope",
+        "reason": "Classified 'non-production' by TheEraptic"
+      },
+      "evaluation": null
+    }
+  ],
+  "agent": {
+    "model": "claude-opus-5-5",
+    "stop_reason": "end_turn",
+    "actions": [
+      {
+        "at": "2026-10-14T11:51:44.086Z",
+        "tool": "open_retro_review_issue",
+        "input": {
+          "repo": "TheEraptic/grc-lab-payments-api",
+          "sha": "599d9a1e2e11b1a660eaddf266eb254b261b7bc4",
+          "summary": "Merge commit for PR #2 (by TheEraptic, 2026-10-07) reached main without independent approval (CM-01 D2). This production repo requires someone other than the author to review the change after the fact."
+        },
+        "output": {
+          "action": "already_open",
+          "url": "https://github.com/TheEraptic/grc-lab-payments-api/issues/5"
+        },
+        "ok": true
+      },
+      {
+        "at": "2026-10-14T11:51:44.689Z",
+        "tool": "open_retro_review_issue",
+        "input": {
+          "repo": "TheEraptic/grc-lab-payments-api",
+          "sha": "46d465d9da0b23b2500017935e60d3d720f92c5e",
+          "summary": "Commit \"docs: add test instructions to README\" (author: claude, 2026-10-07), merged via PR #2, reached main without independent approval (CM-01 D2). It needs an after-the-fact review by someone who did not author it."
+        },
+        "output": {
+          "action": "already_open",
+          "url": "https://github.com/TheEraptic/grc-lab-payments-api/issues/6"
+        },
+        "ok": true
+      },
+      {
+        "at": "2026-10-14T11:51:52.696Z",
+        "tool": "notify_owner",
+        "input": {
+          "repo": "TheEraptic/grc-lab-payments-api",
+          "severity": "action_required",
+          "title": "CM-01: PR #2 merged to main without independent approval",
+          "body": "**What was wrong:** PR #2 was merged into `main` without approval from someone other than its author (2 commits, CM-01 check D2).\n\n**Guardrail status:** The branch rules (P1–P6) all pass right now: PR required, 1 approval, stale approvals dismissed, `test` check required, no bypass actors, force-push and deletion blocked. I made no ruleset changes, so I didn't run a new verify.\n\n**What you need to do:** Have someone who didn't author PR #2 review these commits and close the issues with their findings. These issues were already open, so no duplicates were created:\n- `599d9a1` (merge of PR #2): https://github.com/TheEraptic/grc-lab-payments-api/issues/5\n- `46d465d` (docs: add test instructions to README): https://github.com/TheEraptic/grc-lab-payments-api/issues/6\n\n**Worth checking:** The rules require 1 approval, yet this merge went through without an independent one. Check whether the only approval came from a co-author (for example, the person who opened the PR approving commits made by the `claude` bot), or whether the rules were changed around 2026-10-07.\n\nThe repo is classified as production. No reply is needed about the classification unless you disagree with it."
+        },
+        "output": {
+          "action": "commented_on_existing_alert",
+          "url": "https://github.com/TheEraptic/GRC-Engineering/issues/5#issuecomment-6167700644",
+          "issue": 5
+        },
+        "ok": true
+      }
+    ],
+    "summary": "Only one repo failed this run: TheEraptic/grc-lab-payments-api, which is classified as production. PR #2 was merged into `main` without independent approval (check D2), and it affected two commits: `599d9a1` and `46d465d`. A review issue was already open for each commit, so I didn't create duplicates. Those are issues #5 and #6 in that repo. All the branch-rule checks (P1–P6) passed, so I didn't change the ruleset or run a new verify. I sent the owner one \"action required\" message asking for an after-the-fact review by someone who didn't author the PR. It was added as a comment on the existing alert (GRC-Engineering#5). The rules require one approval, yet this merge got through without an independent one, so I flagged that for the owner too: either the only approval came from someone who co-authored the change, or the rules were changed around 2026-10-07."
+  },
+  "finished_at": "2026-10-14T11:51:58.714Z",
+  "evidence_file": "evidence/runs/2026-10-14/115134Z-run.json"
+}
