@@ -2,7 +2,7 @@
 
 > All changes to production must go through a pull request, code review, and automated test before merge.
 
-Last run: **2026-10-22T21:35:22.150Z** (trigger: schedule) · Evidence: `evidence/runs/2026-10-22/213522Z-run.json`
+Last run: **2026-10-23T04:48:28.791Z** (trigger: schedule) · Evidence: `evidence/runs/2026-10-23/044828Z-run.json`
 
 | Repo | Scope | Result | P1 | P2 | P3 | P4 | P5 | P6 | D1 | D2 | D3 |
 |---|---|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
